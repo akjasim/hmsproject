@@ -1,0 +1,86 @@
+#header {
+    background-color: #EB267D;
+    color: #000000;
+    padding: 20px !important;
+}
+
+#header a:link, #header a:visited {
+    color: #ffffff;
+}
+
+#user-tools a:focus, #user-tools a:hover {
+    color: #ffffff;
+}
+
+#branding h1, #branding h1 a:link, #branding h1 a:visited {
+    color: #ffffff;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background-color: #EB267D;
+}
+
+.button:active, input[type=submit]:active, input[type=button]:active, .button:focus, input[type=submit]:focus, input[type=button]:focus, .button:hover, input[type=submit]:hover, input[type=button]:hover {
+    background-color: #EB267D;
+    /*color: #EB267D;*/
+    /*background: none;*/
+    /*border: 1px solid #EB267D;*/
+    /*font-size: 12px;*/
+    /*text-transform: uppercase;*/
+}
+
+.button.default, input[type=submit].default, .submit-row input.default {
+    background-color: #EB267D;
+}
+
+.button.default:active, input[type=submit].default:active, .button.default:focus, input[type=submit].default:focus, .button.default:hover, input[type=submit].default:hover {
+    background-color: #EB267D;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    background-color: #EB267D;
+}
+
+a:link, a:visited {
+    color: #000;
+}
+
+div.breadcrumbs {
+    background: #000;
+    color: #EB267D;
+}
+
+.object-tools a:link, .object-tools a:visited {
+    background-color: #EB267D;
+}
+
+#changelist .actions .button {
+    background: #000000 !important;
+    color: #fff !important;
+}
+
+#changelist #toolbar form input[type="submit"] {
+    background: #000000 !important;
+    color: #fff !important;
+}
+
+thead th {
+    background: #000000;
+}
+
+thead th.sorted {
+    background: #000000;
+}
+
+thead th, tfoot td {
+    color: #ffffff;
+}
+
+table thead th .text a:focus, table thead th .text a:hover {
+    background: #000000;
+}
+
+thead th a:link, thead th a:visited {
+    color: #ffffff;
+}
+

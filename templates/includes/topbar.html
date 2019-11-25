@@ -1,0 +1,22 @@
+<div id="topbar" class="bg-danger d-flex flex-row-reverse py-3 px-4 justify-content-between">
+    {% if not request.user.is_authenticated %}
+        <div>
+            <a href="{% url 'login' %}" class="text-uppercase text-white text-decoration-none small-text">Sign in <i
+                    class="fa fa-sign-in-alt"></i></a>
+        </div>
+        <div>
+            <a href="#"><i class="fab fa-facebook-f text-white mr-2"></i></a>
+            <a href="#"><i class="fab fa-twitter text-white mr-2"></i></a>
+            <a href="#"><i class="fab fa-linkedin text-white mr-2"></i></a>
+            <a href="#"><i class="fab fa-instagram text-white mr-2"></i></a>
+        </div>
+    {% else %}
+        <div>
+            <a href="{% url 'logout' %}" class="text-uppercase text-dark text-decoration-none small-text">Sign out <i
+                    class="fa fa-sign-out-alt"></i></a>
+        </div>
+        <div class="small-text mt-1 mt-md-0">
+            Welcome, <strong>{{ user.first_name }}</strong>
+        </div>
+    {% endif %}
+</div>

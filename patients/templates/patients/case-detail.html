@@ -1,0 +1,82 @@
+{% extends 'layouts/base.html' %}
+{% block title %}Case Detail{% endblock %}
+{% block content %}
+    <section id="patient-detail" class="py-4">
+        <div class="container">
+            <div class="row bg-info p-4">
+                <div class="col-md-6 border border-dark pt-2">
+                    <h3>Personal Information</h3>
+                    <p class="lead">Full Name:
+                        <strong>{{ object.patient.first_name }} {{ object.patient.last_name }}</strong></p>
+                    <p class="lead">Age & Gender: <strong>
+                        {{ object.patient.profile.age }}{{ object.patient.profile.gender }}</strong></p>
+                    <p class="lead">Address: <strong>{{ object.patient.profile.address }}</strong></p>
+                    <p class="lead">Phone Number: <strong>{{ object.patient.profile.phone_number }}</strong></p>
+                    <p class="lead">Blood Group: <strong>{{ object.patient.profile.blood_group }}</strong></p>
+                </div>
+                <div class="col-md-6 border border-dark pt-2">
+                    <h3>Admitted Case</h3>
+                    <p class="lead">MRD Number: <strong>{{ object.mrd_number }}</strong></p>
+                    <p class="lead">Medical History: <strong>{{ object.medical_history }}</strong></p>
+                    <p class="lead">Diagnosed Case: <strong>{{ object.diagnosed_case }}</strong></p>
+                    <p class="lead">Consulting Doctor: <strong>{{ object.consulting_doctor }}</strong></p>
+                    <p class="lead">Room/Ward Number: <strong>{{ object.room_number }}</strong></p>
+                </div>
+            </div>
+            <!-- Bills -->
+            <div id="bills" class="row border border-dark bg-dark text-white">
+                <div class="col-md-12 text-center">
+                    <h2 class="p-2">Bills</h2>
+                    <hr class="bg-light">
+                </div>
+                {% for bill in bills %}
+                    <div class="col-md-4">
+                        <div class="card mb-3 bg-light text-dark custom-card">
+                            <div class="card-header bg-dark text-center text-white border border-light lead">Bill
+                                Number: {{ bill.bill_number }}</div>
+                            <div class="card-body">
+                                <p class="card-title">Category: {{ bill.bill_category }}</p>
+                                <p class="card-title">Amount: {{ bill.amount }}</p>
+                                <p class="card-title"><a class="text-dark font-weight-bold"
+                                                         href="{{ bill.bill_image.url }}">Download Bill</a></p>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="col-md-12"><p class="lead text-center">No bills found!</p></div>
+                {% endfor %}
+            </div>
+            {% if bills %}
+                <div class="row bg-info text-dark p-3 font-weight-bold">
+                    <div class="col-md-6 text-right text-md-left align-self-md-center">
+                        Grand Total
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <span>₹{{ bill_amount }}</span><br>
+                        {% if object.pay_now %}
+                            {% comment %}
+                            Payment Gateway currently disabled!
+                            <form method="POST">
+                            {% csrf_token %}
+                            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                    data-key="{{ data_key }}"
+                                    data-name="Patient Discharge"
+                                    data-description="{{ data_description }}"
+                                    data-amount="{{ stripe_total }}"
+                                    data-locale="auto"
+{#                                    data-image="{% static 'images/logo.png' %}"#}
+                                    data-currency="inr"
+                                    data-shipping-address="true"
+                                    data-billing-address="true"
+                                    data-zip-code="true">
+                            </script>
+                        </form>
+                        {% endcomment %}
+                            <button class="btn btn-dark">Pay Now</button>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

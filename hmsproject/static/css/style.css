@@ -1,0 +1,29 @@
+#departments {
+    text-align: center;
+}
+
+.custom-card:hover {
+    background-color: #17a2b8 !important;
+    transition-duration: 2s;
+}
+
+/* Stripe */
+.stripe-button-el {
+    /*display: block !important;*/
+    /*width: 100% !important;*/
+    background-color: #343a40 !important;
+    background-image: none !important;
+}
+
+.stripe-button-el span {
+    height: 36px !important;
+    background: #343a40 !important;
+    font-weight: 400 !important;
+    padding: .375rem .75rem !important;
+    font-size: 1rem !important;
+    /*font-family: 'Raleway', sans-serif !important;*/
+    text-align: center !important;
+    vertical-align: middle !important;
+    line-height: 1.5 !important;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !important;
+}

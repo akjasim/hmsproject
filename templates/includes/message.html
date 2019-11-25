@@ -1,0 +1,7 @@
+{% if messages %}
+    <div class="text-center bg-light p-3">
+        {% for message in messages %}
+            <span class="lead">{{ message }}</span>
+        {% endfor %}
+    </div>
+{% endif %}

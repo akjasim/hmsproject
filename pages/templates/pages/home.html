@@ -1,0 +1,102 @@
+{% extends 'layouts/base.html' %}
+{% load crispy_forms_filters %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    {% include 'includes/carousel.html' %}
+    <section id="departments" class="bg-info text-white p-5">
+        <div class="department-header">
+            <h2>Specialized Departments</h2>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolorem et ipsum,
+                obcaecati pariatur
+                porro! Ad culpa dolor dolores exercitationem impedit incidunt iusto maiores molestias, natus non nulla
+                provident tempora</p>
+        </div>
+        <div class="department-body mt-5">
+            <div class="container">
+                <div class="row">
+                    {% for department in department_list %}
+                        <div class="col-md-3 py-3">
+                            <p><i class="fas fa-2x fa-{{ department.icon }}"></i><br>{{ department.name }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="appointments" class="bg-light text-dark p-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 align-self-center">
+                    <h2>Make An Appointment</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A asperiores assumenda beatae commodi
+                        culpa esse eum facilis fugiat illo ipsam ipsum molestias nam neque non nulla, numquam placeat
+                        porro quia quo rerum tempore, voluptate voluptates! Autem beatae corporis culpa debitis iusto
+                        laboriosam minus nemo omnis sit? Eius quas quod tempora.</p>
+                </div>
+                <div class="col-md-6">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <input type="submit" value="Submit" class="btn btn-outline-dark">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact-us" class="bg-info text-white p-5">
+        <div class="container text-center">
+            <div class="contact-us-header">
+                <h2>Get In Touch</h2>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A asperiores assumenda beatae
+                    commodi
+                    culpa.</p>
+            </div>
+            <div class="row mt-5 justify-content-between align-items-center">
+                <div class="col-lg-3">
+                    <div class="card mb-3 bg-dark p-3">
+                        <div class="card-header"><i class="fas fa-3x fa-mail-bulk mb-2"></i><br>
+                            Email
+                        </div>
+                        <div class="card-body bg-white text-dark rounded">
+                            <p class="card-text">
+                                support@hospital.me<br>
+                                hr@hospital.me<br>
+                                mail@hospital.me
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card mb-3 bg-dark p-3">
+                        <div class="card-header"><i class="fas fa-3x fa-phone mb-2"></i><br>
+                            Call
+                        </div>
+                        <div class="card-body bg-white text-dark rounded">
+                            <p class="card-text">
+                                +91 8111964468<br>
+                                +91 9876543210<br>
+                                +91 1234567890
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card mb-3 bg-dark p-3">
+                        <div class="card-header"><i class="fas fa-3x fa-location-arrow mb-2"></i><br>
+                            Location
+                        </div>
+                        <div class="card-body bg-white text-dark rounded">
+                            <p class="card-text">
+                                Theodore Lowe,<br>
+                                #867-859 Sit Rd.<br>
+                                Azusa New York 39531
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
