@@ -1,2 +1,3 @@
-beautyproject/static/* linguist-vendored
+hmsproject/static/* linguist-vendored
 templates/* linguist-vendored
+*/templates/* linguist-vendored
